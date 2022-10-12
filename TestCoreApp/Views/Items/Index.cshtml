@@ -3,30 +3,55 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Items View</h1>
+<div class="container p-3">
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">
-               Item Name 
-            </th >
-            <th scope="col">
-               Item Price
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var item in Model) 
-        {
-            <tr class="table-primary">
-              <td scope="row" width="50%">
-                  @item.Name
-              </td>
-              <td width="30%">
-                  @item.Price
-              </td>
-           </tr>
-        }
-    </tbody>
-</table>
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Items View</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Items" asp-action="New" class="btn btn-primary">
+                <i class="bi bi-plus"></i> &nbsp; Add New Item
+            </a>
+        </div>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Item Name
+                </th>
+                <th scope="col">
+                    Item Price
+                </th>
+                <th scope="col"> 
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-primary">
+                    <td scope="row" width="50%">
+                        @item.Name
+                    </td>
+                    <td width="30%">
+                        @item.Price
+                    </td>
+                    <td>
+                        <a asp-controller="" asp-action="" class="btn btn-success">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        &nbsp;
+                        <a asp-controller="" asp-action="" class="btn btn-danger">
+                            <i class="bi bi-trash3"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
