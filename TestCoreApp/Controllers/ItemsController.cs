@@ -31,9 +31,20 @@ namespace TestCoreApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult New(Item item)
         {
-            _db.Items.Add(item);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            if (item.Name == "100")
+            {
+                ModelState.AddModelError("Name", "Name can't equal 100");
+            }
+            if (ModelState.IsValid)
+            {
+                _db.Items.Add(item);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(item);
+            }
         }
     }
 }
