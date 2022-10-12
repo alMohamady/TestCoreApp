@@ -18,5 +18,12 @@ namespace TestCoreApp.Controllers
             IEnumerable<Item> itemsList = _db.Items.ToList();
             return View(itemsList);
         }
+
+        //GET
+        public IActionResult New()
+        {
+
+            return View(); 
+        }
     }
 }
