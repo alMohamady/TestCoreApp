@@ -25,5 +25,15 @@ namespace TestCoreApp.Controllers
 
             return View(); 
         }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult New(Item item)
+        {
+            _db.Items.Add(item);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
