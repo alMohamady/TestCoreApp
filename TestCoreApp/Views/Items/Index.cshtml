@@ -1,7 +1,32 @@
-﻿
+﻿@model IEnumerable<Item>
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Items View</h1>
 
+<table class="table table-bordered table-striped" style="width:100%" >
+    <thead>
+        <tr>
+            <th>
+               Item Name 
+            </th>
+            <th>
+               Item Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model) 
+        {
+           <tr>
+              <td width="50%">
+                  @item.Name
+              </td>
+              <td width="30%">
+                  @item.Price
+              </td>
+           </tr>
+        }
+    </tbody>
+</table>
