@@ -5,13 +5,13 @@
 
 <h1>Items View</h1>
 
-<table class="table table-bordered table-striped" style="width:100%" >
+<table class="table table-hover">
     <thead>
         <tr>
-            <th>
+            <th scope="col">
                Item Name 
-            </th>
-            <th>
+            </th >
+            <th scope="col">
                Item Price
             </th>
         </tr>
@@ -19,8 +19,8 @@
     <tbody>
         @foreach(var item in Model) 
         {
-           <tr>
-              <td width="50%">
+            <tr class="table-primary">
+              <td scope="row" width="50%">
                   @item.Name
               </td>
               <td width="30%">
