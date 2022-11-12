@@ -39,6 +39,7 @@ namespace TestCoreApp.Controllers
             {
                 _db.Items.Add(item);
                 _db.SaveChanges();
+                TempData["successData"] = "Item has been added successfully";
                 return RedirectToAction("Index");
             }
             else
@@ -75,6 +76,7 @@ namespace TestCoreApp.Controllers
             {
                 _db.Items.Update(item);
                 _db.SaveChanges();
+                TempData["successData"] = "Item has been updated successfully";
                 return RedirectToAction("Index");
             }
             else
@@ -110,7 +112,8 @@ namespace TestCoreApp.Controllers
             }
             _db.Remove(item);
            _db.SaveChanges();
-           return RedirectToAction("Index");
+            TempData["successData"] = "Item has been deleted successfully";
+            return RedirectToAction("Index");
         }
     }
 }
