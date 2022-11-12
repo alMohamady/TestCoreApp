@@ -20,11 +20,7 @@
         </div>
         <div>
             <label asp-for="CategoryId"></label>
-            <select asp-for="CategoryId" disabled class="form-control">
-                <option value="0">Select Category</option>
-                <option value="1">Computers</option>
-                <option value="2">Mobiles</option>
-                <option value="3">Electric machines</option>
+            <select asp-for="CategoryId" class="form-control" disabled asp-items="@ViewBag.CategoryList">
             </select>
         </div>
 
