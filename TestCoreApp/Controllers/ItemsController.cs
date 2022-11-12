@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using TestCoreApp.Data;
 using TestCoreApp.Models;
 
@@ -16,7 +17,7 @@ namespace TestCoreApp.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Item> itemsList = _db.Items.ToList();
+            IEnumerable<Item> itemsList = _db.Items.Include(c => c.Category).ToList();
             return View(itemsList);
         }
 

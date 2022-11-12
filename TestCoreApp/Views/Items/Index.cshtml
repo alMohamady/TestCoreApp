@@ -5,12 +5,7 @@
 
 <div class="container p-3">
 
-    @if (TempData["successData"] != null)
-    {
-        <h3 style="color:brown;">
-            @TempData["successData"]
-        </h3>
-    }
+<partial name="_Notifications" />
 
     <div class="row pt-4">
         <div class="col-6">
@@ -32,6 +27,9 @@
                 <th scope="col">
                     Item Price
                 </th>
+                <th scope="col">
+                    Category
+                </th>
                 <th scope="col"> 
                 </th>
             </tr>
@@ -40,11 +38,14 @@
             @foreach (var item in Model)
             {
                 <tr class="table-primary">
-                    <td scope="row" width="50%">
+                    <td scope="row" width="30%">
                         @item.Name
                     </td>
-                    <td width="30%">
+                    <td width="20%">
                         @item.Price
+                    </td>
+                    <td width="30%">  
+                        @item.Category.Name
                     </td>
                     <td>
                         <a asp-controller="Items" asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-sm btn-success">
