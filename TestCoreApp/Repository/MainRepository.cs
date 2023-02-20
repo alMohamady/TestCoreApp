@@ -16,5 +16,10 @@ namespace TestCoreApp.Repository
         {
             return context.Set<T>().Find(id);
         }
+
+        public IEnumerable<T> FindAll()
+        {
+            return context.Set<T>().ToList();
+        }
     }
 }
