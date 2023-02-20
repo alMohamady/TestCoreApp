@@ -1,6 +1,7 @@
 ﻿namespace TestCoreApp.Repository.Base
 {
-    public interface IRepository
+    public interface IRepository<T> where T : class
     {
+        T FindById(int id);
     }
 }
