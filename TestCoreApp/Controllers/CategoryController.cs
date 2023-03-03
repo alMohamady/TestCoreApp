@@ -20,7 +20,11 @@ namespace TestCoreApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _repository.FindAllAsync());
+            var oneCat = _repository.SelectOne(x => x.Name == "Computers");
+
+            var allCat = await _repository.FindAllAsync("Items"); 
+
+            return View(allCat);
         }
     }
 }
