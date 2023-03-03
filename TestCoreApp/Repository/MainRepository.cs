@@ -1,4 +1,5 @@
-﻿using TestCoreApp.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using TestCoreApp.Data;
 using TestCoreApp.Repository.Base;
 
 namespace TestCoreApp.Repository
@@ -20,6 +21,16 @@ namespace TestCoreApp.Repository
         public IEnumerable<T> FindAll()
         {
             return context.Set<T>().ToList();
+        }
+
+        public async Task<T> FindByIdAsync(int id)
+        {
+           return await context.Set<T>().FindAsync(id);
+        }
+
+        public async Task<IEnumerable<T>> FindAllAsync()
+        {
+            return await context.Set<T>().ToListAsync();
         }
     }
 }
