@@ -32,8 +32,6 @@ namespace TestCoreApp.Controllers
         //GET
         public IActionResult New()
         {
-
-
             return View();
         }
 
