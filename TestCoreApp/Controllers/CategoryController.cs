@@ -42,7 +42,7 @@ namespace TestCoreApp.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                _repository.AddOne(category);
                 return RedirectToAction("Index");
             }
             else
@@ -54,8 +54,16 @@ namespace TestCoreApp.Controllers
         //GET
         public IActionResult Edit(int? Id)
         {
-
-            return View();
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+            var category = _repository.FindById(Id.Value);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            return View(category);
         }
 
         //POST
@@ -65,7 +73,7 @@ namespace TestCoreApp.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                _repository.UpdateOne(category);
                 return RedirectToAction("Index");
             }
             else
@@ -77,7 +85,16 @@ namespace TestCoreApp.Controllers
         //GET
         public IActionResult Delete(int? Id)
         {
-            return View();
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+            var category = _repository.FindById(Id.Value);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            return View(category);
         }
 
         //POST
@@ -85,8 +102,8 @@ namespace TestCoreApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Delete(Category category)
         {
-
-            TempData["successData"] = "Item has been deleted successfully";
+            _repository.DeleteOne(category);
+            TempData["successData"] = "category has been deleted successfully";
             return RedirectToAction("Index");
         }
     }
