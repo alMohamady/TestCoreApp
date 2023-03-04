@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using TestCoreApp.Data;
+using TestCoreApp.Models;
 using TestCoreApp.Repository.Base;
 
 namespace TestCoreApp.Repository
@@ -67,6 +68,44 @@ namespace TestCoreApp.Repository
             }
 
             return await query.ToListAsync();
+        }
+
+        //=========================================================================//
+
+        public void AddOne(T myItem)
+        {
+            context.Set<T>().Add(myItem);
+            context.SaveChanges();
+        }
+
+        public void UpdateOne(T myItem)
+        {
+            context.Set<T>().Update(myItem);
+            context.SaveChanges();
+        }
+
+        public void DeleteOne(T myItem)
+        {
+            context.Set<T>().Remove(myItem);
+            context.SaveChanges();
+        }
+
+        public void AddList(IEnumerable<T> myList)
+        {
+            context.Set<T>().AddRange(myList);
+            context.SaveChanges();
+        }
+
+        public void UpdateList(IEnumerable<T> myList)
+        {
+            context.Set<T>().UpdateRange(myList);
+            context.SaveChanges();
+        }
+
+        public void DeleteList(IEnumerable<T> myList)
+        {
+            context.Set<T>().RemoveRange(myList);
+            context.SaveChanges();
         }
     }
 }
