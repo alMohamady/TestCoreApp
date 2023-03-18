@@ -6,7 +6,7 @@ namespace TestCoreApp.Repository.Base
     {
         IRepository<Category> categories { get;  }
         IRepository<Item> items { get; }
-        IRepository<Employee> emplyees { get;  }
+        IEmpRepo emplyees { get;  }
         int CommitChanges();
     }
 }
