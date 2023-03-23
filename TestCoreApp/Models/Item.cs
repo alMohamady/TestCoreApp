@@ -22,6 +22,8 @@ namespace TestCoreApp.Models
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
 
+        public string? imagePath { get; set; }
+
         public Category? Category { get; set; }
     }
 }
