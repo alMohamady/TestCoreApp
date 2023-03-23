@@ -24,6 +24,9 @@ namespace TestCoreApp.Models
 
         public string? imagePath { get; set; }
 
+        [NotMapped]
+        public IFormFile clientFile { get; set; }
+
         public Category? Category { get; set; }
     }
 }

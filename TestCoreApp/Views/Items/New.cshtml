@@ -3,7 +3,7 @@
     ViewData["Title"] = "New";
 }
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
             <h2 class="text-primary">Add New Item</h2>
@@ -27,7 +27,7 @@
             <span asp-validation-for="CategoryId" class="text-danger"></span>
         </div>
         <div>
-            <input type="file" onchange="loadFile(event)" />
+            <input type="file" asp-for="clientFile" onchange="loadFile(event)" />
             <img id="myImg" height="200" />
         </div>
         <br/>

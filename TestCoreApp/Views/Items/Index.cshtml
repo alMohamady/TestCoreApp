@@ -30,6 +30,9 @@
                 <th scope="col">
                     Category
                 </th>
+                <th scope="col">
+                    Img
+                </th>
                 <th scope="col"> 
                 </th>
             </tr>
@@ -46,6 +49,9 @@
                     </td>
                     <td width="30%">  
                         @item.Category.Name
+                    </td>
+                    <td>
+                        <img src="~/images/@item.imagePath" style="width:48px" class="img-thumbnail" />
                     </td>
                     <td>
                         <a asp-controller="Items" asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-sm btn-success">
