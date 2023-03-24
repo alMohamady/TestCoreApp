@@ -3,7 +3,7 @@
     ViewData["Title"] = "New";
 }
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
             <h2 class="text-primary">Add New Category</h2>
@@ -15,7 +15,10 @@
             <input asp-for="Name" class="form-control" />
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
-
+        <div>
+            <input type="file" asp-for="clientFile" onchange="loadFile(event)" />
+            <img id="myImg" height="200" />
+        </div>
         <br />
         <hr />
         <button type="submit" class="btn btn-primary" style="width:150px">Save</button>
@@ -27,4 +30,14 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        var loadFile = function(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var myImg = document.getElementById('myImg');
+                myImg.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 }

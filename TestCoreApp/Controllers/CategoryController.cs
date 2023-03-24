@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Drawing;
 using TestCoreApp.Models;
 using TestCoreApp.Repository.Base;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace TestCoreApp.Controllers
 {
@@ -45,6 +47,12 @@ namespace TestCoreApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (category.clientFile != null)
+                {
+                    MemoryStream stream = new MemoryStream();
+                    category.clientFile.CopyTo(stream);
+                    category.dbImage = stream.ToArray();
+                }
                 myUnit.categories.AddOne(category);
                 return RedirectToAction("Index");
             }
