@@ -44,4 +44,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.UseEndpoints(endpoint => endpoint.MapRazorPages());
+
 app.Run();
