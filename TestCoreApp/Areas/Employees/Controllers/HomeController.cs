@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TestCoreApp.Areas.Employees.Controllers
 {
-    [Area("Employees")]
+    [Area("Employees"), Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()
