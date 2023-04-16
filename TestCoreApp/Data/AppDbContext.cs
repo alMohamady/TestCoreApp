@@ -27,6 +27,22 @@ namespace TestCoreApp.Data
                   new Category() { Id = 4, Name = "Electric machines" }
                 );
 
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "Admin",
+                    NormalizedName = "admin",
+                    ConcurrencyStamp = Guid.NewGuid().ToString(),
+                },
+                new IdentityRole()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "User",
+                    NormalizedName = "user",
+                    ConcurrencyStamp = Guid.NewGuid().ToString(),
+                });
+
             base.OnModelCreating(modelBuilder);
         }
     }
