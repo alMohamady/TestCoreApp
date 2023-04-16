@@ -8,7 +8,7 @@ using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace TestCoreApp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = clsRoles.roleAdmin)]
     public class CategoryController : Controller
     {
         public CategoryController(IUnitOfWork _myUnit) 
