@@ -3,6 +3,8 @@ using TestCoreApp.Data;
 using TestCoreApp.Repository;
 using TestCoreApp.Repository.Base;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using TestCoreApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>();
 
+builder.Services.AddTransient<IEmailSender, clsEmailConfirm>();
 
 //builder.Services.AddTransient(typeof(IRepository<>), typeof(MainRepository<>));
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
